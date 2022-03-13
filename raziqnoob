@@ -60,5 +60,59 @@ if raziq.Name == MainAcc then
         end
     end
 elseif TP == Queue then
-    
+    if game.PlaceId == Earth then
+        wait(2)
+        game:GetService("TeleportService"):Teleport(3565304751, LocalPlayer)
+    elseif game.PlaceId == Queue then
+        if freeze2x == true then
+            pcall(
+                function()
+                    if game.Players.LocalPlayer.Character:FindFirstChild("True") then
+                        wait(.1)
+                        game.Players.LocalPlayer.Character.True:Destroy()
+                    elseif freeze2x == false then
+                        wait()
+                    end
+                end
+            )
+        end
+        wait(2)
+        local char = game.Workspace.Live:WaitForChild(plr.Name)
+        if char:FindFirstChild("PowerOutput") then
+            char.PowerOutput:Destroy()
+        end
+        wait()
+        game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame = CFrame.new(-321, 238, -1115)
+        game.Workspace.Live[plr.Name].HumanoidRootPart["PowerLevel"]:Destroy()
+        wait(1.5)
+        local plr = game.Players.LocalPlayer
+        local char = plr.Character
+        local hum = plr.Character:FindFirstChildOfClass("Humanoid")
+        local hrp = getRoot(plr.Character)
+        hum.Name = "1"
+        local newHum = hum:Clone()
+        newHum.Parent = char
+        newHum.Name = "Humanoid"
+        wait()
+        hum:Destroy()
+        game.Workspace.CurrentCamera.CameraSubject = char
+        newHum.DisplayDistanceType = "None"
+        wait()
+        local no = game.Players.LocalPlayer.Character
+        no.LowerTorso.Root:Destroy()
+        wait(1)
+        local Pads = {}
+        for i, v in pairs(game:WaitForChild("Workspace"):GetChildren()) do
+            if v.Name:find("BrolyTeleport") then
+                table.insert(Pads, v)
+            end
+        end
+        local pad = Pads[math.random(1, 7)]
+        print(pad.Name)
+        Twn(Char.HumanoidRootPart, pad.PrimaryPart.CFrame, 1)
+        wait(4)
+        game.Players.LocalPlayer.Character.HumanoidRootPart.Anchored = true
+        wait(40)
+        game:GetService("TeleportService"):Teleport(3565304751, LocalPlayer)
+    end
 end
