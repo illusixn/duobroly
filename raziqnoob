@@ -1,0 +1,64 @@
+if raziq.Name == Reds1 or Reds2 or Reds3 then
+    while wait() do
+        for i, v in pairs(game.Players.LocalPlayer.Backpack:GetChildren()) do
+            if v.Name == "Instant Transmission" then
+                v.Parent = game.Players.LocalPlayer.Character
+                v:Activate()
+                v:Deactivate()
+                game.Players.LocalPlayer.Backpack.ServerTraits.FakeChat:FireServer(MainAcc)
+                wait(0.2)
+                v.Parent = game.Players.LocalPlayer.Backpack
+            end
+        end
+    end
+end
+if raziq.Name == MainAcc then
+    if TP == Earth then
+        if game.PlaceId == Earth then
+            if freeze2x == true then
+                pcall(
+                    function()
+                        if game.Players.LocalPlayer.Character:FindFirstChild("True") then
+                            wait(.1)
+                            game.Players.LocalPlayer.Character.True:Destroy()
+                        elseif freeze2x == false then
+                            wait()
+                        end
+                    end
+                )
+            end
+            local plr = game.Players.LocalPlayer
+            local char = plr.Character
+            local hum = plr.Character:FindFirstChildOfClass("Humanoid")
+            local hrp = getRoot(plr.Character)
+            hum.Name = "1"
+            local newHum = hum:Clone()
+            newHum.Parent = char
+            newHum.Name = "Humanoid"
+            wait()
+            hum:Destroy()
+            game.Workspace.CurrentCamera.CameraSubject = char
+            newHum.DisplayDistanceType = "None"
+            wait()
+            game.Workspace.Live[plr.Name].HumanoidRootPart["PowerLevel"]:Destroy()
+            wait()
+            local yes = game.Workspace.Live:WaitForChild(plr.Name)
+            if yes:FindFirstChild("PowerOutput") then
+                yes.PowerOutput:Destroy()
+            end
+            local no = game.Players.LocalPlayer.Character
+            no.LowerTorso.Root:Destroy()
+            wait()
+            game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame = CFrame.new(2750.53, 3944.86, -2271.29)
+            wait(4)
+            game.Players.LocalPlayer.Character.HumanoidRootPart.Anchored = true
+            wait(60)
+            game:GetService("TeleportService"):Teleport(536102540, LocalPlayer)
+        elseif game.PlaceId == Queue then
+            wait()
+            game:GetService("TeleportService"):Teleport(536102540, LocalPlayer)
+        end
+    end
+elseif TP == Queue then
+    
+end
